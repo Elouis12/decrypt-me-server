@@ -1,3 +1,4 @@
+/*
 package com.example.server.test;
 
 import edu.stanford.nlp.io.IOUtils;
@@ -56,12 +57,14 @@ public class DocumentFrequencyCounter {
     private static final SpanishTreebankLanguagePack tlp = new SpanishTreebankLanguagePack();
     private static final TokenizerFactory<? extends HasWord> tokenizerFactory = tlp.getTokenizerFactory();
 
-    /**
+    */
+/**
      * Get an IDF map for the given document string.
      *
      * @param document
      * @return
-     */
+     *//*
+
     private static Counter<String> getIDFMapForDocument(String document) {
         // Clean up -- remove some Gigaword patterns that slow things down
         // / don't help anything
@@ -104,11 +107,13 @@ public class DocumentFrequencyCounter {
         return str;
     }
 
-    /**
+    */
+/**
      * Get an IDF map for all the documents in the given file.
      * @param file
      * @return
-     */
+     *//*
+
     private static Counter<String> getIDFMapForFile(Reader file)
             throws SAXException, IOException, TransformerException {
 
@@ -142,12 +147,14 @@ public class DocumentFrequencyCounter {
             this.file = file;
         }
 
-        /**
+        */
+/**
          * Computes a result, or throws an exception if unable to do so.
          *
          * @return computed result
          * @throws Exception if unable to compute a result
-         */
+         *//*
+
         @Override
         public Counter<String> call() throws Exception {
             // We need to hallucinate some overarching document tag.. because the Gigaword files don't
@@ -194,4 +201,4 @@ public class DocumentFrequencyCounter {
         System.err.printf("done.%n");
     }
 
-}
+}*/

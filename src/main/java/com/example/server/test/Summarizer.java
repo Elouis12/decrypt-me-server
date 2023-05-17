@@ -1,3 +1,4 @@
+/*
 package com.example.server.test;
 
 import edu.stanford.nlp.io.IOUtils;
@@ -17,9 +18,11 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Properties;
 
+*/
 /**
  * @author Jon Gauthier
- */
+ *//*
+
 public class Summarizer {
 
     private static final StanfordCoreNLP pipeline;
@@ -62,9 +65,11 @@ public class Summarizer {
             return (int) Math.round(score(o2) - score(o1));
         }
 
-        /**
+        */
+/**
          * Compute sentence score (higher is better).
-         */
+         *//*
+
         private double score(CoreMap sentence) {
             double tfidf = tfIDFWeights(sentence);
 
@@ -137,4 +142,4 @@ public class Summarizer {
         System.out.println(result);
     }
 
-}
+}*/

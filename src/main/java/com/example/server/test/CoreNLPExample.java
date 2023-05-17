@@ -1,3 +1,4 @@
+/*
 package com.example.server.test;
 
 import edu.stanford.nlp.dcoref.Document;
@@ -52,19 +53,23 @@ public class CoreNLPExample {
 
         // tokens
 //        List<CoreLabel> words = document.tokens();
+*/
 /*
         for (CoreSentence sentence : sentences) {
 
             System.out.println(sentence);
-        }*/
+        }*//*
+
 
         // gets the words and parts of speech (pos)
+*/
 /*        for (CoreLabel word : words) {
 
             String pos = word.get( CoreAnnotations.PartOfSpeechAnnotation.class );
 
             System.out.println( word.originalText() + " " + pos);
-        }*/
+        }*//*
+
 
         List< List<CoreLabel> > wordList = new ArrayList<>();
         // gets the words and parts of speech (pos)
@@ -99,28 +104,35 @@ public class CoreNLPExample {
 
 
         // lemmanization - root word
+*/
 /*        for (CoreLabel word : words) {
 
             String lemma = word.lemma();
 
             System.out.println( word.originalText() + " - " + lemma );
-        }*/
+        }*//*
+
 
         // ner - named entity recognition
+*/
 /*        for (CoreLabel word : words) {
 
             String ner = word.get(CoreAnnotations.NamedEntityTagAnnotation.class);
 
             System.out.println( word.originalText() + " - " + ner );
-        }*/
+        }*//*
+
 
         // sentiments
+*/
 /*        for (CoreSentence sentence : sentences) {
 
             String sentiment = sentence.sentiment();
 
             System.out.println( sentiment + " = " + sentence );
-        }*/
+        }*//*
+
 
     }
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package com.example.server.test;
 
 import com.example.server.service.NLPAlgorithm;
@@ -22,3 +23,4 @@ public class Test {
         System.out.println(textGenerator.generateText(1, "once upon a time"));
     }
 }
+*/

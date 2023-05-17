@@ -4,6 +4,7 @@ import com.theokanning.openai.*;
 import com.theokanning.openai.completion.CompletionRequest;
 import com.theokanning.openai.edit.EditRequest;
 import com.theokanning.openai.service.OpenAiService;
+import org.apache.tools.ant.types.Environment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
@@ -11,17 +12,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+
 public class ResponseGenerator {
 
-    private NLPAlgorithm nlpAlgorithm;
-    private NLGAlgorithm nlgAlgorithm;
+//    private NLPAlgorithm nlpAlgorithm;
+//    private NLGAlgorithm nlgAlgorithm;
 
     private String input;
     private String output;
 
     @Value("${API_KEY}")
-    private String API_KEY;
-
+    private String API_KEY = API.API_KEY;
 
 
     @Autowired
@@ -63,4 +64,6 @@ public class ResponseGenerator {
 
         return this.output;
     }
+
+
 }
