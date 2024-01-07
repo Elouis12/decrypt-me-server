@@ -2,13 +2,24 @@ package com.example.server.service;
 
 import com.example.server.model.ClientResponse;
 import com.example.server.model.ServerResponse;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /*
     HANDLES THE VARIOUS RESPONSES
 */
+@Service
 public class ResponseHandler {
 
-    public static ServerResponse handleClientPromptResponse(ClientResponse clientResponse) {
+
+    private final ResponseGenerator responseGenerator;
+
+    @Autowired
+    public ResponseHandler(ResponseGenerator responseGenerator) {
+        this.responseGenerator = responseGenerator;
+    }
+
+    public /*static*/ ServerResponse handleClientPromptResponse(ClientResponse clientResponse) {
 
         String message = clientResponse.getMessage();
         String clientCipher = clientResponse.getCipher();
@@ -27,7 +38,13 @@ public class ResponseHandler {
         }
 
         // 2. use NLP algo or OPENAI interface to retrieve a response based on the client's decrypted message
+/*
         ResponseGenerator responseGenerator = new ResponseGenerator(clientDecryptedMessage);
+        String responseGenerated = responseGenerator.getResponse();// generate a response using AI
+*/
+//        ResponseGenerator responseGenerator = new ResponseGenerator();
+        this.responseGenerator.setInput(clientDecryptedMessage);
+        responseGenerator.generateResponse();
         String responseGenerated = responseGenerator.getResponse();// generate a response using AI
 
         // 3. use specified or random algo to encrypt it
@@ -48,7 +65,7 @@ public class ResponseHandler {
 
     }
 
-    public static ServerResponse handleClientDecryptionResponse(ClientResponse clientResponse) {
+    public /*static*/ ServerResponse handleClientDecryptionResponse(ClientResponse clientResponse) {
 
         String clientMessage = clientResponse.getMessage();
         int clientCipherShift = clientResponse.getShift();
@@ -75,7 +92,7 @@ public class ResponseHandler {
 
     }
 
-    public static String handleGetDecryptedMessage(int shift) {
+    public /*static*/ String handleGetDecryptedMessage(int shift) {
 
 
         ServerResponse serverResponse = ServerResponse.getInstance();

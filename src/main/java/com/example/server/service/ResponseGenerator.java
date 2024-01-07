@@ -7,12 +7,14 @@ import com.theokanning.openai.service.OpenAiService;
 import org.apache.tools.ant.types.Environment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-
+@Service
 public class ResponseGenerator {
 
 //    private NLPAlgorithm nlpAlgorithm;
@@ -22,20 +24,17 @@ public class ResponseGenerator {
     private String output;
 
     @Value("${API_KEY}")
-    private String API_KEY = API.API_KEY;
+    private String API_KEY;
 
 
     @Autowired
-    public ResponseGenerator(String input){
-
-        this.input = input;
-
-        this.generateResponse();
+    public ResponseGenerator(){
 
     }
 
     public void generateResponse(){
 
+        System.out.println("hey " + this.API_KEY);
         OpenAiService service = new OpenAiService(this.API_KEY);
 
 
@@ -58,6 +57,10 @@ public class ResponseGenerator {
 
 
         this.output = desiredOutput;
+    }
+
+    public void setInput(String input) {
+        this.input = input;
     }
 
     public String getResponse(){

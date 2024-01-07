@@ -9,6 +9,7 @@ import com.example.server.service.ResponseHandler;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.apache.tomcat.util.json.ParseException;
 import org.json.JSONException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -17,12 +18,18 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class ServerController {
 
+    private final ResponseHandler responseHandler;
+
+    @Autowired
+    public ServerController(ResponseHandler responseHandler) {
+        this.responseHandler = responseHandler;
+    }
 
     // RETRIEVE CLIENT RESPONSE
     @PostMapping("/client-prompt-response")
     public ServerResponse sendEncryptedResponse(@RequestBody ClientResponse clientResponse) {
 
-        return ResponseHandler.handleClientPromptResponse(clientResponse);
+        return responseHandler.handleClientPromptResponse(clientResponse);
 
     }
 
@@ -30,7 +37,7 @@ public class ServerController {
     @PostMapping("/client-decryption-response")
     public ServerResponse checkDecryptedResponse(@RequestBody ClientResponse clientResponse){
 
-        return ResponseHandler.handleClientDecryptionResponse(clientResponse);
+        return responseHandler.handleClientDecryptionResponse(clientResponse);
 
     }
 
@@ -40,7 +47,7 @@ public class ServerController {
     @GetMapping("/decrypted-response")
     public String getDecryptedResponse(int shift){
 
-        return ResponseHandler.handleGetDecryptedMessage(shift);
+        return responseHandler.handleGetDecryptedMessage(shift);
     }
 
 }
